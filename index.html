@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- В этот список добавляй элементы галереи -->
+    <ul class="gallery js-gallery"></ul>
+
+    <div class="slider-box">
+        <div class="slider-item">
+            <div class="slider-content">
+                <div class="img-container">
+                    <img class="slider-image"
+                        src="https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg"
+                        alt="Hokkaido Flower" />
+                </div>
+                <div class="info-container">
+                    <span class="logo">Logo</span>
+                    <p class="description">Description</p>
+                </div>
+            
+            </div>
+
+        </div>
+        
+        <div class="btn-slider">
+            <button type="button" class="button-top"></button>
+            <button type="button" class="button-down"></button>
+        </div>
+
+    </div>
+
+
+        <script src="./js/gallery-items.js" type="module"></script>
+        <script src="./js/slider-items.js" type="module"></script>
+        <script src="./js/gallery.js" type="module"></script>
+</body>
+</html>
