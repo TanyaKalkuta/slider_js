@@ -4,9 +4,9 @@ export default // Создание и рендер разметки по мас�
 
 function createListItem(gallery) {
   return gallery
-    .map(({ name }) => {
+    .map((el, index) => {
       return `
-    <li class="gallery-item">${name}</li>`;
+    <li id=${index} class="gallery-item">${el.name}</li>`;
     })
     .join("");
 }

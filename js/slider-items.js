@@ -3,9 +3,8 @@ export default // Создание и рендер разметки по мас�
 //console.log(createSliderItem(gallery));
 
 function createSliderItem(gallery) {
-  return gallery
-    .map(({ picture, logo, description }) => {
-      return `
+  return gallery.map(({ picture, logo, description }) => {
+    return `
      <div class="slider-content">
         <div class="img-container">
           <img class="slider-image"
@@ -17,6 +16,5 @@ function createSliderItem(gallery) {
             <p class="description">${description}</p>
         </div>
      </div>`;
-    })
-    .join("");
+  });
 }

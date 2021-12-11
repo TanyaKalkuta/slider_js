@@ -44,9 +44,9 @@ body {
 .gallery-item:active {
   background-color: tomato;
 }
-/* .gallery-item.is-active {
+.gallery-item.is-active {
   background-color: tomato;
-} */
+}
 .gallery__link {
   display: block;
   text-decoration: none;
@@ -63,9 +63,7 @@ body {
   width: 650px;
   height: 400px;
 }
-.slider-item {
-  overflow: hidden;
-}
+
 .slider-content {
   display: flex;
   height: 400px;
