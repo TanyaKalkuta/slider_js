@@ -31,8 +31,9 @@ function onSliderOpen(event) {
   refs.sliderContainer.innerHTML = sliderItems[currentIndex];
   // currentIndex = event.target.id;
 
-  if (+currentIndex - 1 < 0) {
+  if (currentIndex - 1 < 0) {
     refs.btnTop.disabled = true;
+    return;
   } else {
     refs.btnDown.disabled = false;
   }
