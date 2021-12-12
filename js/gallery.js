@@ -3,33 +3,52 @@ import refs from "./refs.js";
 import createListItem from "./gallery-items.js";
 import createSliderItem from "./slider-items.js";
 
-// const picturesArray = gallery.map((el) => el.picture);
-// const logoArray = gallery.map((el) => el.logo);
-// const descriptionsArray = gallery.map((el) => el.description);
-
 let currentIndex = 0;
 
 // Создание и рендер разметки Списка по массиву данных и предоставленному шаблону.
 const listItems = createListItem(gallery);
 refs.listContainer.insertAdjacentHTML("beforeend", listItems);
+// console.dir(refs.listContainer);
+// refs.listContainer.children[0].classList.add("is-active");
 
+//Создаем елемент слайдера:
 const sliderItems = createSliderItem(gallery);
-console.log(sliderItems);
+// console.log(sliderItems);
+
+//Выводим всегда 1й слайдер при загрузке страницы
 refs.sliderContainer.innerHTML = sliderItems[0];
 
 // Загрузка Слайдера по клику на элементе галереи.
 refs.listContainer.addEventListener("click", onSliderOpen);
 
-function onSliderOpen(event) {
-  console.log(event.target.id);
+// Краснaя заливка по клику на элементе галереи.
 
+function onSliderOpen(event) {
+  // console.log(event.target);
+  // console.log(event.target.id);
+  console.log(currentIndex);
   const isGalleryItems = event.target.classList.contains("gallery-item");
   if (!isGalleryItems) {
     return;
   }
   currentIndex = +event.target.id;
   refs.sliderContainer.innerHTML = sliderItems[currentIndex];
+  // console.log(refs.sliderContainer);
+  // console.log(refs.sliderItem);
   // currentIndex = event.target.id;
+
+  // Класс Краснaя заливка по клику на элементе галереи.
+
+  // console.log(refs.listContainer);
+
+  refs.listContainer.childNodes.forEach((element, indx) => {
+    // console.log(element);
+
+    if (element.nodeName === "LI" && indx !== currentIndex) {
+      element.classList.remove("is-active");
+    }
+  });
+  event.target.classList.add("is-active");
 
   if (currentIndex - 1 < 0) {
     refs.btnTop.disabled = true;
@@ -43,16 +62,12 @@ function onSliderOpen(event) {
   } else {
     refs.btnTop.disabled = false;
   }
-  console.log(currentIndex - 1);
-  console.log(gallery.length);
+  // console.log(currentIndex - 1);
+  // console.log(gallery.length);
+  console.log(currentIndex);
 }
-// refs.listContainer.addEventListener("click", onIsActive);
 
-// function onIsActive(event) {
-//   // if (event.currentTarget === event.target) {
-//   event.target.classList.add("is-active");
-//   // }
-// }
+//Кнопки перемещения по слайдам:
 
 refs.btnTop.addEventListener("click", onTopKeyPress);
 
